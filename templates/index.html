@@ -2,46 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Big Buck Registry's – Solunar Deer Movement Forecast</title>
 
 <style>
-/* ---------------- FORM INPUTS (MATCH DEERMOVE.COM) ---------------- */
+
+/* ---------------------- FORM INPUTS ---------------------- */
 
 form input[type="text"] {
     width: 100%;
-    max-width: 100%;
     padding: 12px;
     font-size: 18px;
     border-radius: 6px;
-    box-sizing: border-box;
+    background-color: #2b2b2b;
+    border: 2px solid #ff6600;
+    color: white;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 form select {
     width: 100%;
-    max-width: 100%;
     padding: 12px;
     font-size: 18px;
     border-radius: 6px;
-    box-sizing: border-box;
+    background-color: #2b2b2b;
+    border: 2px solid #ff6600;
+    color: white;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 form button {
     width: 100%;
     padding: 12px;
     font-size: 18px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    font-weight: bold;
 }
 
-/* Base page styling */
+/* ---------------------- BASE PAGE ---------------------- */
 
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
-    color: #ffffff;
+    color: white;
     margin: 0;
     padding: 0;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -50,16 +64,18 @@ h1 {
     color: #ff6600;
 }
 
+/* Main responsive container – MATCHES DeerMove.com */
 .container {
-    width: 92%;
+    width: 94%;
     max-width: 680px;
     margin: 20px auto;
     padding: 18px;
     background-color: #2b2b2b;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
-/* Daily rows */
+/* ---------------------- DAILY ROWS ---------------------- */
 
 .row {
     background-color: #333333;
@@ -70,7 +86,11 @@ h1 {
     text-align: left;
 }
 
+/* FIX: replace float with flex — prevents huge blank mobile space */
 .date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 18px;
     font-weight: bold;
     color: #ff6600;
@@ -78,29 +98,15 @@ h1 {
 
 .moon {
     font-size: 42px;
-    float: right;
+    margin-left: auto;
 }
 
 .section-label {
     margin-top: 12px;
     font-size: 13px;
     font-weight: bold;
-    color: #ff6600;
     text-transform: uppercase;
-}
-
-button {
-    padding: 10px 22px;
-    background-color: #ff6600;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #e65c00;
+    color: #ff6600;
 }
 
 .deer {
@@ -108,14 +114,7 @@ button:hover {
     margin-top: 10px;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    background: rgba(255,255,255,.18);
-    margin: 10px 0;
-}
-
-/* ------------------ SUMMARY CARD (FINAL HIGH-RES VERSION) ------------------ */
+/* ---------------------- SUMMARY CARD ---------------------- */
 
 .summary-card {
     margin-top: 24px;
@@ -125,6 +124,8 @@ hr {
     border-radius: 10px;
     text-align: left;
     font-size: 17px;
+    box-shadow: inset 0 0 6px rgba(255,255,255,0.08),
+                0 0 4px rgba(0,0,0,0.6);
 }
 
 .summary-card h3 {
@@ -135,7 +136,7 @@ hr {
 
 .summary-day {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,.18);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 
 .summary-day:last-child {
@@ -146,81 +147,32 @@ hr {
     font-size: 16px;
     color: #cccccc;
     margin-bottom: 4px;
+    text-shadow: 0 0 2px rgba(0,0,0,0.6);
 }
 
-/* Moon + deer line in summary */
-
+/* Moon + Deer Row */
 .summary-icons {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap: 8px;
 }
 
+/* High-Resolution Emojis */
 .summary-moon {
-    font-size: 36px;   /* high-res emoji size */
-}
-
-.summary-deer {
-    font-size: 26px;   /* high-res emoji size */
-    letter-spacing: 3px;
-    text-align: right;
-}
-
-/* Better emoji/text rendering */
-
-html, body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* FINAL OVERRIDE — ensures full-width on mobile for form controls */
-
-form input[type="text"],
-form select,
-form button {
-    width: 100% !important;
-    font-size: 18px !important;
-    padding: 12px !important;
-}
-
-/* Match Deermove.com input LOOK exactly */
-
-form input[type="text"],
-form select {
-    background-color: #2b2b2b !important;
-    border: 2px solid #ff6600 !important;
-    color: #ffffff !important;
-    border-radius: 6px !important;
-}
-/* ----- ENHANCED EMOJI SIZE + SHADOW CONTRAST ----- */
-
-/* Bigger, clearer moon icon */
-.summary-moon {
-    font-size: 42px;     /* was 36px */
+    font-size: 42px;
     filter: drop-shadow(0 0 2px rgba(255,255,255,0.35));
 }
 
-/* Bigger, clearer deer icons */
 .summary-deer {
-    font-size: 32px;     /* was 26px */
+    font-size: 32px;
     letter-spacing: 3px;
     filter: drop-shadow(0 0 2px rgba(255,255,255,0.35));
-}
-
-/* Slight shadow around the summary card contents */
-.summary-card {
-    box-shadow: inset 0 0 6px rgba(255,255,255,0.08),
-                0 0 4px rgba(0,0,0,0.6);
-}
-
-/* Slight contrast boost for summary date */
-.summary-date {
-    text-shadow: 0 0 2px rgba(0,0,0,0.6);
 }
 
 </style>
 </head>
+
+
 
 <body>
 
@@ -231,7 +183,7 @@ form select {
     <!-- FORM -->
     <form method="POST">
         <input type="text" name="zipcode" placeholder="Enter ZIP code" value="{{ zipcode }}">
-        
+
         <select name="days">
             <option value="7" {% if days == 7 %}selected{% endif %}>7 Days</option>
             <option value="14" {% if days == 14 %}selected{% endif %}>14 Days</option>
@@ -241,11 +193,14 @@ form select {
     </form>
 
     {% if rows %}
+
         {% for r in rows %}
             <div class="row">
 
-                <div class="moon">{{ r.moon_icon }}</div>
-                <div class="date">{{ r.date }}</div>
+                <div class="date">
+                    {{ r.date }}
+                    <span class="moon">{{ r.moon_icon }}</span>
+                </div>
 
                 <div>Moon Illumination: {{ r.illum }}</div>
                 <div>Solunar Index: {{ r.index }}</div>
@@ -274,15 +229,18 @@ form select {
 
             {% for r in rows %}
                 <div class="summary-day">
+
                     <div class="summary-date">{{ r.date }}</div>
 
                     <div class="summary-icons">
                         <span class="summary-moon">{{ r.moon_icon }}</span>
                         <span class="summary-deer">{{ r.deer_icons }}</span>
                     </div>
+
                 </div>
             {% endfor %}
         </div>
+
     {% endif %}
 
 </div>
