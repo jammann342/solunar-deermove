@@ -7,6 +7,23 @@
 <title>Big Buck Registry's – Solunar Deer Movement Forecast</title>
 
 <style>
+.donate-footer {
+    margin-top: 60px;
+    padding: 32px 16px 36px;
+    text-align: center;
+    border-top: 2px solid #444;
+    background-color: #1f1f1f;
+}
+
+.donate-footer p {
+    margin: 0 0 16px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.donate-footer strong {
+    color: #ff6600;
+}
 
 /* ---------------------- FORM INPUTS ---------------------- */
 
@@ -168,6 +185,16 @@ h1 {
     letter-spacing: 3px;
     filter: drop-shadow(0 0 2px rgba(255,255,255,0.35));
 }
+.donate-footer input[type="image"] {
+    width: 170px;
+    max-width: 90%;
+    margin-top: 8px;
+    transition: transform 0.15s ease;
+}
+
+.donate-footer input[type="image"]:hover {
+    transform: scale(1.05);
+}
 
 </style>
 </head>
@@ -189,7 +216,7 @@ h1 {
             <option value="14" {% if days == 14 %}selected{% endif %}>14 Days</option>
         </select>
 
-        <button type="submit">Update</button>
+        <button type="submit">Predict</button>
     </form>
 
     {% if rows %}
@@ -244,6 +271,27 @@ h1 {
     {% endif %}
 
 </div>
+{% if rows %}
+<div class="donate-footer">
+  <p>
+    If this solunar forecast helped your hunt, consider supporting Big Buck Registry.<br>
+    <strong>By Deer Hunters, for Deer Hunters.</strong>
+  </p>
+
+  <form action="https://www.paypal.com/donate" method="post" target="_top">
+    <input type="hidden" name="hosted_button_id" value="WFVYTVUAK3RP6" />
+    <input
+      type="image"
+      src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+      name="submit"
+      alt="Donate with PayPal button"
+    />
+    <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+  </form>
+</div>
+{% endif %}
+
+
 
 </body>
 </html>
