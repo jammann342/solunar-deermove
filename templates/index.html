@@ -6,6 +6,34 @@
 
 
 <style>
+
+/* Make Solunar ZIP input match DeerMove.com */
+form input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+form select {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
@@ -56,16 +84,7 @@ h1 {
     font-weight: bold;
     color: #ff6600;
     text-transform: uppercase;
-}
 
-input[type="text"],
-select {
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 15px;
 }
 
 button {
@@ -125,9 +144,11 @@ hr {
 
 .summary-icons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 10px;   /* adjust distance here */
 }
+
 
 .summary-moon {
     font-size: 26px;
@@ -138,6 +159,22 @@ hr {
     font-size: 18px;
     letter-spacing: 2px;
     text-align: right;
+}
+/* FINAL OVERRIDE — ensures full-width on mobile */
+form input[type="text"],
+form select,
+form button {
+    width: 100% !important;
+    font-size: 18px !important;
+    padding: 12px !important;
+}
+/* Match Deermove.com input LOOK exactly */
+form input[type="text"],
+form select {
+    background-color: #2b2b2b !important;
+    border: 2px solid #ff6600 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
 }
 
 </style>
