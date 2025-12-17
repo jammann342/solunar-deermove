@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Big Buck Registry's – Solunar Deer Movement Forecast</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32"
+      href="{{ url_for('static', filename='images/favicon.png') }}">
+
+<link rel="apple-touch-icon" sizes="180x180"
+      href="{{ url_for('static', filename='images/favicon.png') }}">
 
 <style>
 .donate-footer {
@@ -218,7 +224,21 @@ h1 {
 
         <button type="submit">Predict</button>
     </form>
+	{% if rows %}
+<div class="donate-footer">
+  <p>
+    If this forecast helps you plan your hunt, please consider supporting the Big Buck Registry.<br>
+    <strong>By Deer Hunters, for Deer Hunters.</strong>
+  </p>
 
+  <form action="https://www.paypal.com/donate" method="post" target="_top">
+    <input type="hidden" name="hosted_button_id" value="WFVYTVUAK3RP6" />
+    <button type="submit" class="donate-btn">
+  Support Big Buck Registry
+</button>
+  </form>
+</div>
+{% endif %}
     {% if rows %}
 
         {% for r in rows %}
@@ -271,25 +291,7 @@ h1 {
     {% endif %}
 
 </div>
-{% if rows %}
-<div class="donate-footer">
-  <p>
-    If this solunar forecast helped your hunt, consider supporting Big Buck Registry.<br>
-    <strong>By Deer Hunters, for Deer Hunters.</strong>
-  </p>
 
-  <form action="https://www.paypal.com/donate" method="post" target="_top">
-    <input type="hidden" name="hosted_button_id" value="WFVYTVUAK3RP6" />
-    <input
-      type="image"
-      src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
-      name="submit"
-      alt="Donate with PayPal button"
-    />
-    <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-  </form>
-</div>
-{% endif %}
 
 
 
