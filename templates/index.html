@@ -166,57 +166,45 @@ h1 {
 
 
 .summary-card {
-    margin-top: 24px;
-    padding: 20px;
+    margin-top: 20px;
+    padding: 10px 12px;
     background-color: #1a1a1a;
     border: 2px solid #ff6600;
     border-radius: 10px;
-    text-align: left;
-    font-size: 17px;
-    box-shadow: inset 0 0 6px rgba(255,255,255,0.08),
-                0 0 4px rgba(0,0,0,0.6);
-
 }
 
-.summary-card h3 {
-    margin: 0 0 12px;
-    font-size: 20px;
-    color: #ff6600;
-}
-
+/* one compact row per day */
 .summary-day {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .summary-day:last-child {
     border-bottom: none;
 }
 
+/* moon */
+.summary-moon {
+    font-size: 30px;
+}
+
+/* date text */
 .summary-date {
     font-size: 16px;
-    color: #cccccc;
-    margin-bottom: 4px;
-    text-shadow: 0 0 2px rgba(0,0,0,0.6);
+    color: #eaeaea;
+    white-space: nowrap;
 }
 
-/* Moon + Deer Row */
-.summary-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* High-Resolution Emojis */
-.summary-moon {
-    font-size: 42px;
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.35));
-}
-
+/* deer rating */
 .summary-deer {
-    font-size: 32px;
-    letter-spacing: 3px;
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.35));
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
 }
 .donate-footer input[type="image"] {
     width: 170px;
@@ -302,17 +290,13 @@ h1 {
             <h3>7-Day Deer Movement Snapshot</h3>
 
             {% for r in rows %}
-                <div class="summary-day">
+			  <div class="summary-day">
+				<span class="summary-moon">{{ r.moon_icon }}</span>
+				<span class="summary-date">{{ r.date }}</span>
+				<span class="summary-deer">{{ r.deer_icons }}</span>
+			  </div>
+			{% endfor %}
 
-                    <div class="summary-date">{{ r.date }}</div>
-
-                    <div class="summary-icons">
-                        <span class="summary-moon">{{ r.moon_icon }}</span>
-                        <span class="summary-deer">{{ r.deer_icons }}</span>
-                    </div>
-
-                </div>
-            {% endfor %}
         </div>
 
     {% endif %}
