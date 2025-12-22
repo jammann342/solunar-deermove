@@ -172,16 +172,23 @@ h1 {
     border: 2px solid #ff6600;
     border-radius: 10px;
 }
+.summary-card h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    text-align: center;
+}
 
 /* one compact row per day */
 .summary-day {
     display: grid;
-    grid-template-columns: 42px 1fr auto;
+    grid-template-columns: 34px 1fr auto;
     align-items: center;
-    gap: 8px;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    gap: 6px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    line-height: 1.2;
 }
+
 
 .summary-day:last-child {
     border-bottom: none;
@@ -189,21 +196,20 @@ h1 {
 
 /* moon */
 .summary-moon {
-    font-size: 30px;
+    font-size: 26px;
 }
 
 /* date text */
 .summary-date {
-    font-size: 16px;
+    font-size: 15px;
     color: #eaeaea;
     white-space: nowrap;
 }
 
 /* deer rating */
 .summary-deer {
-    font-size: 22px;
-    letter-spacing: 2px;
-}
+    font-size: 20px;
+    letter-spacing: 1px;
 
 }
 .donate-footer input[type="image"] {
